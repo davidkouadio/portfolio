@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio de Kouadio Jean David Mathieu — Data Scientist, Analyste Macroéconomique &amp; Financier et Développeur Web Full-Stack basé à Abidjan, Côte d'Ivoire.">
+<meta property="og:title" content="Kouadio Jean David — Data Scientist · Analyste Macroéconomique &amp; Financier · Développeur">
+<meta property="og:description" content="Data Scientist · Analyste Macroéconomique &amp; Financier · Développeur Web — EPITECH WeCode · Master II Économie Internationale">
+<meta property="og:type" content="website">
+<title>Kouadio Jean David — Data Scientist · Analyste Macroéconomique &amp; Financier · Développeur</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:    #1A3A5C;
+  --accent:  #2E86C1;
+  --teal:    #1ABC9C;
+  --light:   #EAF4FB;
+  --white:   #FFFFFF;
+  --dark:    #1C2833;
+  --gray:    #5D6D7E;
+  --lgray:   #F7FAFC;
+  --border:  #D5E8F5;
+  --shadow:  0 2px 20px rgba(26,58,92,0.08);
+  --shadow-md: 0 6px 28px rgba(26,58,92,0.13);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  line-height: 1.65;
+}
+
+/* ── NAV ─────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  height: 62px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-brand {
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.nav-links {
+  display: flex; gap: 2rem; list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--gray);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--navy); border-radius: 2px;
+  transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute; top: 62px; left: 0; right: 0;
+    background: rgba(255,255,255,0.98);
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+}
+
+/* ── HERO ─────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(140deg, var(--navy) 0%, #1d4475 55%, #2E86C1 100%);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 90px 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 75% 25%, rgba(26,188,156,0.15) 0%, transparent 55%);
+  pointer-events: none;
+}
+#hero::after {
+  content: "";
+  position: absolute; bottom: -1px; left: 0; right: 0;
+  height: 60px;
+  background: var(--lgray);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.hero-content { position: relative; max-width: 780px; animation: fadeUp 0.8s ease both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-photo {
+  width: 128px; height: 128px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.35);
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
+.hero-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.hero-name {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.hero-subtitle {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+.hero-subtitle strong { color: rgba(255,255,255,0.95); font-weight: 600; }
+.hero-badges {
+  display: flex; flex-wrap: wrap; gap: 0.45rem;
+  justify-content: center; margin-bottom: 2.5rem;
+}
+.badge {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.88);
+  padding: 0.28rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.hero-cta { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.68rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+  border: 2px solid var(--teal);
+}
+.btn-primary:hover { background: #17a589; border-color: #17a589; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(26,188,156,0.35); }
+.btn-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.35);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.1); }
+.btn-navy {
+  background: var(--navy);
+  color: var(--white);
+  border: 2px solid var(--navy);
+}
+.btn-navy:hover { background: #142e4a; transform: translateY(-1px); }
+
+/* ── SECTIONS ─────────────────────────── */
+section { padding: 5.5rem 2rem; }
+.container { max-width: 1080px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.section-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  color: var(--navy);
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+.section-title em { color: var(--accent); font-style: normal; }
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── ABOUT ─────────────────────────────── */
+#about { background: var(--lgray); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-text p {
+  color: var(--gray);
+  margin-bottom: 1rem;
+  font-size: 0.93rem;
+}
+.about-text p strong { color: var(--dark); }
+.about-contact {
+  margin-top: 1.4rem;
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+.about-contact a {
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.about-contact a:hover { text-decoration: underline; }
+.about-contact span { color: var(--gray); font-size: 0.85rem; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.3rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s;
+}
+.stat-card:hover { box-shadow: var(--shadow-md); }
+.stat-number {
+  font-family: "Playfair Display", serif;
+  font-size: 2.1rem;
+  color: var(--navy);
+  line-height: 1;
+}
+.stat-number.teal { color: var(--teal); }
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--gray);
+  margin-top: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+/* ── FORMATION ─────────────────────────── */
+#education { background: var(--white); }
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+.edu-card {
+  background: var(--lgray);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.3rem 1.5rem;
+  border-left: 4px solid var(--accent);
+  transition: box-shadow 0.2s;
+}
+.edu-card:hover { box-shadow: var(--shadow-md); }
+.edu-card.teal { border-left-color: var(--teal); }
+.edu-degree {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+.edu-school { font-size: 0.8rem; color: var(--accent); font-style: italic; margin-bottom: 0.2rem; }
+.edu-year { font-size: 0.75rem; color: var(--gray); }
+.edu-note { font-size: 0.75rem; color: var(--teal); margin-top: 0.4rem; font-weight: 500; }
+
+/* ── SKILLS ─────────────────────────────── */
+#skills { background: var(--lgray); }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.3rem;
+}
+.skill-group {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.4rem;
+  border-top: 3px solid var(--accent);
+  transition: box-shadow 0.2s;
+}
+.skill-group:hover { box-shadow: var(--shadow-md); }
+.skill-group.teal { border-top-color: var(--teal); }
+.skill-group-title {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+}
+.skill-group.teal .skill-group-title { color: var(--teal); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.skill-tag {
+  display: inline-block;
+  background: var(--lgray);
+  border: 1px solid var(--border);
+  color: var(--dark);
+  padding: 0.22rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.skill-tag.hi {
+  background: var(--light);
+  border-color: var(--accent);
+  color: var(--navy);
+  font-weight: 700;
+}
+.skill-tag.hi-teal {
+  background: #e8faf6;
+  border-color: var(--teal);
+  color: #0e7a60;
+  font-weight: 700;
+}
+
+/* ── EXPERIENCE ─────────────────────────── */
+#experience { background: var(--white); }
+.timeline { position: relative; padding-left: 2px; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 16px; top: 8px; bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent) 0%, var(--teal) 100%);
+  border-radius: 2px;
+}
+.tl-item {
+  position: relative;
+  padding-left: 3.2rem;
+  margin-bottom: 2rem;
+}
+.tl-dot {
+  position: absolute;
+  left: 8px; top: 6px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--accent);
+  z-index: 1;
+}
+.tl-dot.teal { border-color: var(--teal); }
+.tl-card {
+  background: var(--lgray);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  transition: box-shadow 0.2s;
+}
+.tl-card:hover { box-shadow: var(--shadow-md); }
+.tl-head {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.tl-title { font-size: 0.88rem; font-weight: 700; color: var(--navy); }
+.tl-badge {
+  font-size: 0.7rem; color: var(--white);
+  background: var(--accent); border-radius: 20px;
+  padding: 0.12rem 0.65rem; font-weight: 600; white-space: nowrap;
+}
+.tl-badge.teal { background: var(--teal); }
+.tl-org { font-size: 0.78rem; color: var(--accent); font-style: italic; margin-bottom: 0.3rem; }
+.tl-zone { font-size: 0.74rem; color: var(--gray); margin-bottom: 0.45rem; }
+.tl-bullets { list-style: none; padding: 0; }
+.tl-bullets li {
+  font-size: 0.79rem; color: var(--gray);
+  padding: 0.15rem 0 0.15rem 1rem;
+  position: relative; line-height: 1.45;
+}
+.tl-bullets li::before {
+  content: "–";
+  position: absolute; left: 0;
+  color: var(--accent); font-weight: 700;
+}
+.tl-cert {
+  margin-top: 0.55rem;
+  font-size: 0.72rem; color: #1E8449;
+  font-weight: 600;
+}
+.tl-cert::before { content: "✓  "; }
+
+/* ── PROJECTS ─────────────────────────── */
+#projects { background: var(--lgray); }
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.4rem;
+}
+.proj-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex; flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-top: 3px solid var(--accent);
+}
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.proj-card.teal { border-top-color: var(--teal); }
+.proj-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+.proj-module {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.proj-card.teal .proj-module { color: var(--teal); }
+.proj-title {
+  font-size: 0.92rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.proj-desc {
+  font-size: 0.8rem; color: var(--gray);
+  margin-bottom: 1rem; flex: 1; line-height: 1.5;
+}
+.proj-stack { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: auto; }
+.stack-tag {
+  background: var(--lgray); border: 1px solid var(--border);
+  color: var(--dark); padding: 0.14rem 0.5rem;
+  border-radius: 3px; font-size: 0.7rem; font-weight: 600;
+}
+.proj-link {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  margin-top: 0.8rem;
+  font-size: 0.75rem; color: var(--accent);
+  text-decoration: none; font-weight: 600;
+}
+.proj-link:hover { text-decoration: underline; }
+
+/* ── CONTACT ─────────────────────────── */
+#contact {
+  background: linear-gradient(140deg, var(--navy) 0%, #1d4475 100%);
+  text-align: center;
+}
+#contact .section-eyebrow { color: var(--teal); }
+#contact .section-title { color: var(--white); }
+#contact .section-title em { color: var(--teal); }
+.contact-sub {
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 2.5rem;
+  font-size: 0.92rem;
+  max-width: 480px;
+  margin-left: auto; margin-right: auto;
+}
+.contact-cards {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  justify-content: center; margin-bottom: 2.5rem;
+}
+.contact-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 10px;
+  padding: 0.9rem 1.5rem;
+  color: rgba(255,255,255,0.88);
+  font-size: 0.84rem;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 0.55rem;
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+}
+.contact-card:hover {
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.35);
+  color: var(--white);
+}
+.contact-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ─────────────────────────── */
+footer {
+  background: #0a1826;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 0.75rem;
+}
+
+/* ── BACK TO TOP ─────────────────────── */
+#btt {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 42px; height: 42px;
+  background: var(--accent);
+  color: white; border: none; border-radius: 50%;
+  font-size: 1.1rem; cursor: pointer;
+  box-shadow: var(--shadow-md);
+  display: none; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 100;
+}
+#btt:hover { background: var(--navy); transform: translateY(-2px); }
+#btt.visible { display: flex; }
+
+@media (max-width: 600px) {
+  section { padding: 4rem 1.2rem; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .contact-cards { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">David Kouadio</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#education">Formation</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#experience">Expériences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Abidjan, Côte d'Ivoire &nbsp;·&nbsp; Disponible</p>
+    <h1 class="hero-name">Kouadio Jean David Mathieu</h1>
+    <p class="hero-subtitle">
+      <strong>Data Scientist</strong> &nbsp;·&nbsp; Analyste Macroéconomique &amp; Financier &nbsp;·&nbsp;
+      <strong>Développeur Web Full-Stack</strong><br>
+      Master II Économie Internationale &nbsp;·&nbsp; EPITECH WeCode
+    </p>
+    <div class="hero-badges">
+      <span class="badge">Python</span>
+      <span class="badge">Machine Learning</span>
+      <span class="badge">SQL</span>
+      <span class="badge">Laravel</span>
+      <span class="badge">Vue.js</span>
+      <span class="badge">Apache Kafka</span>
+      <span class="badge">Power BI</span>
+      <span class="badge">PostgreSQL</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+      <a href="https://github.com/davidkouadio" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+      <a href="https://linkedin.com/in/david-kouadio-90a028278" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="about">
+  <div class="container reveal">
+    <p class="section-eyebrow">Qui suis-je</p>
+    <h2 class="section-title">Économiste &amp;<br><em>Data Scientist</em> par passion</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Étudiant en <strong>Master II d'Économie Internationale</strong> à l'Université Félix Houphouët-Boigny et en formation <strong>Data/IA à EPITECH (WeCode)</strong>, je combine une triple expertise rare : l'analyse macroéconomique et financière, le trading sur les marchés (BRVM, FOREX, CFD, indices boursiers), et la data science couplée au développement web full-stack.</p>
+        <p>Mon expérience terrain dans l'administration de <strong>programmes éducatifs nationaux et internationaux</strong> pour le Ministère de l'Éducation Nationale m'a confronté à des défis réels de collecte, d'encodage et de gestion de données à grande échelle — sur plusieurs régions de Côte d'Ivoire : Abidjan, Daloa, Bouaflé, Fresco, Soubré.</p>
+        <p>Mon objectif : <strong>résoudre des problèmes stratégiques et économiques</strong> grâce à la data, en apportant une valeur immédiate dans des missions de conseil, d'analyse ou de développement.</p>
+        <p><strong>Engagements :</strong> Directeur Suivi &amp; Coord. — ILA (2024) · Honorable Parlementaire — Parlement de la Jeunesse de CI (2020) · Informaticien bénévole — Réseau j'aime Bingerville (2020) · Membre actif Quartier Libre (2016–2026).</p>
+        <div class="about-contact">
+          <a href="mailto:david.j.kouadio@gmail.com">📧 david.j.kouadio@gmail.com</a>
+          <span>📞 07 77 90 55 18 &nbsp;/&nbsp; 05 95 24 49 52</span>
+          <a href="https://github.com/davidkouadio" target="_blank" rel="noopener">⌥ github.com/davidkouadio</a>
+          <a href="https://linkedin.com/in/david-kouadio-90a028278" target="_blank" rel="noopener">in linkedin.com/in/david-jean-kouadio-90a028278</a>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Missions terrain DVSP</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number teal">7+</div>
+          <div class="stat-label">Projets EPITECH réalisés</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Régions couvertes en CI</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number teal">140</div>
+          <div class="stat-label">Contributions GitHub</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section id="education">
+  <div class="container reveal">
+    <p class="section-eyebrow">Parcours académique</p>
+    <h2 class="section-title">Formation &amp; <em>Certifications</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card teal">
+        <div class="edu-degree">Formation Data / IA</div>
+        <div class="edu-school">EPITECH via WeCode — Abidjan</div>
+        <div class="edu-year">En cours</div>
+        <div class="edu-note">Python · ML · PHP · Laravel · Vue.js · SQL · Deep Learning</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Master II Économie Internationale</div>
+        <div class="edu-school">Université Félix Houphouët-Boigny — Cocody</div>
+        <div class="edu-year">2023 – 2025</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Formation en Investissement - Marché BRVM</div>
+        <div class="edu-school">Bourse Régionale des Valeurs Mobilières</div>
+        <div class="edu-year">2024</div>
+      </div>
+      <div class="edu-card gold">
+        <div class="edu-degree">Formation Analyse des Indices Boursiers</div>
+        <div class="edu-school">S&amp;P500, CAC40, NASDAQ100</div>
+        <div class="edu-year">2024</div>
+        <div class="edu-note" style="color:#b8960a;">Analyse financière  Risk management  Macroéconomie appliquée</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Formation Analyse Technique &amp; Macroéconomique</div>
+        <div class="edu-school">Marchés de devise, matières premières, CFD</div>
+        <div class="edu-year">2024</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Licence 3 Économie</div>
+        <div class="edu-school">Université Nord-Sud</div>
+        <div class="edu-year">2021 - 2022</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Baccalauréat série C</div>
+        <div class="edu-school">Lycée de Garçon de Bingerville</div>
+        <div class="edu-year">2019</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="skills">
+  <div class="container reveal">
+    <p class="section-eyebrow">Expertise technique</p>
+    <h2 class="section-title">Stack &amp; <em>Compétences</em></h2>
+    <div class="skills-grid">
+      <div class="skill-group" style="border-top-color:#F1C40F">
+        <div class="skill-group-title" style="color:#b8960a;">Économie · Finance · Trading</div>
+        <div class="skill-tags">
+          <span class="skill-tag hi-gold">Analyse technique</span>
+          <span class="skill-tag hi-gold">Analyse macroéco</span>
+          <span class="skill-tag hi-gold">Chandelles japonaises</span>
+          <span class="skill-tag hi-gold">EViews</span>
+          <span class="skill-tag hi-gold">Stata</span>
+          <span class="skill-tag hi-gold">R</span>
+          <span class="skill-tag" style="background:#fdf9e3;border-color:#F1C40F;color:#7d6500">FOREX · CFD</span>
+          <span class="skill-tag" style="background:#fdf9e3;border-color:#F1C40F;color:#7d6500">BRVM · Indices</span>
+          <span class="skill-tag" style="background:#fdf9e3;border-color:#F1C40F;color:#7d6500">S&amp;P500 · CAC40 · NASDAQ</span>
+          <span class="skill-tag" style="background:#fdf9e3;border-color:#F1C40F;color:#7d6500">Risk management</span>
+          <span class="skill-tag" style="background:#fdf9e3;border-color:#F1C40F;color:#7d6500">MATLAB</span>
+          <span class="skill-tag" style="background:#fdf9e3;border-color:#F1C40F;color:#7d6500">SAP FI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data &amp; Intelligence Artificielle</div>
+        <div class="skill-tags">
+          <span class="skill-tag hi">Python</span>
+          <span class="skill-tag hi">Machine Learning</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">TensorFlow / Keras</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag hi">Power BI</span>
+          <span class="skill-tag">Pandas · NumPy</span>
+          <span class="skill-tag">Outils IA / LLMs</span>
+        </div>
+      </div>
+      <div class="skill-group teal">
+        <div class="skill-group-title">Bases de données</div>
+        <div class="skill-tags">
+          <span class="skill-tag hi-teal">SQL</span>
+          <span class="skill-tag hi-teal">PostgreSQL</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">PDO</span>
+          <span class="skill-tag">Apache Kafka</span>
+          <span class="skill-tag">Gestion données terrain</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Développement Web</div>
+        <div class="skill-tags">
+          <span class="skill-tag hi">PHP</span>
+          <span class="skill-tag hi">Laravel (MVC)</span>
+          <span class="skill-tag">HTML5 · CSS3</span>
+          <span class="skill-tag hi">JavaScript</span>
+          <span class="skill-tag hi">Vue.js (MVVM)</span>
+          <span class="skill-tag">Vuex</span>
+          <span class="skill-tag">Bootstrap</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">API REST</span>
+        </div>
+      </div>
+      <div class="skill-group teal">
+        <div class="skill-group-title">Outils &amp; Bureautique</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Excel (avancé)</span>
+          <span class="skill-tag">Word</span>
+          <span class="skill-tag">SAP FI</span>
+          <span class="skill-tag hi-teal">Git / GitHub</span>
+          <span class="skill-tag">Jupyter Notebook</span>
+          <span class="skill-tag">Azure VM</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Langues &amp; Soft Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag hi">Français — Maternelle</span>
+          <span class="skill-tag">Anglais — Intermédiaire</span>
+          <span class="skill-tag">Allemand — Intermédiaire</span>
+          <span class="skill-tag">Leadership</span>
+          <span class="skill-tag">Prise de parole public</span>
+          <span class="skill-tag">Rigueur analytique</span>
+          <span class="skill-tag">Gestion projet terrain</span>
+          <span class="skill-tag">Culture générale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCES -->
+<section id="experience">
+  <div class="container reveal">
+    <p class="section-eyebrow">Parcours professionnel</p>
+    <h2 class="section-title">Expériences &amp; <em>Missions</em></h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot teal"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <div class="tl-title">Collaborateur Extérieur : Administration &amp; Gestion de Données</div>
+            <span class="tl-badge teal">2026</span>
+          </div>
+          <div class="tl-org">PRSEP · Ministère de l'Éducation Nationale (MENAET) / DVSP</div>
+          <div class="tl-zone">📍 SOUBRÉ — Méhagui &amp; Oupoyo</div>
+          <ul class="tl-bullets">
+            <li>Administration de tests cognitifs et questionnaires contextuels à grande échelle</li>
+            <li>Encodage, saisie et structuration des données ; contrôle qualité et fiabilisation des bases</li>
+            <li>Coordination logistique des opérations de collecte terrain</li>
+          </ul>
+          <div class="tl-cert">Certificat de participation : MENAET / DVSP (2026)</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <div class="tl-title">Administrateur — Analyse des Systèmes Éducatifs (PASEC)</div>
+            <span class="tl-badge">2025</span>
+          </div>
+          <div class="tl-org">Confemen · Ministère de l'Éducation Nationale / DVSP</div>
+          <div class="tl-zone">📍 Fresco &amp; Sahoua</div>
+          <ul class="tl-bullets">
+            <li>Administration du programme comparatif international des systèmes éducatifs francophones</li>
+            <li>Collecte et gestion de données dans le cadre d'évaluations internationales</li>
+            <li>Encodage, saisie et structuration des données ; contrôle qualité et fiabilisation des bases</li>
+          </ul>
+          <div class="tl-cert">Certificat PASEC — Confemen / DVSP (2025)</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <div class="tl-title">Administrateur  Child Learning and Education Facility (CLEF)</div>
+            <span class="tl-badge">2024</span>
+          </div>
+          <div class="tl-org">Ministère de l'Éducation Nationale / DVSP</div>
+          <div class="tl-zone">📍 Dania &amp; Daloa</div>
+          <ul class="tl-bullets">
+            <li>Administration du programme international d'évaluation des acquis scolaires</li>
+            <li>Coordination des opérations de collecte et saisie de données éducatives</li>
+          </ul>
+          <div class="tl-cert">Certificat CLEF / DVSP (2024)</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <div class="tl-title">Administrateur de Test — PRSEP</div>
+            <span class="tl-badge">2024</span>
+          </div>
+          <div class="tl-org">Ministère de l'Éducation Nationale / DVSP</div>
+          <div class="tl-zone">📍 Bouaflé — Bognonzra, N'dênoukro &amp; Angovia (Yamoussoukro)</div>
+          <ul class="tl-bullets">
+            <li>Administration de tests d'évaluation du système éducatif primaire ivoirien</li>
+          </ul>
+          <div class="tl-cert">Certificat PRSEP — DVSP (2024)</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-head">
+            <div class="tl-title">Administrateur — Évaluation Nationale et Internationale des Acquis Scolaires (ENIA)</div>
+            <span class="tl-badge">2023</span>
+          </div>
+          <div class="tl-org">Ministère de l'Éducation Nationale / DVSP</div>
+          <div class="tl-zone">📍 Abidjan 1 &amp; Abidjan 2</div>
+          <ul class="tl-bullets">
+            <li>Administration du programme national et international d'évaluation des acquis scolaires</li>
+          </ul>
+          <div class="tl-cert">Certificat ENIA — DVSP (2023)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projects">
+  <div class="container reveal">
+    <p class="section-eyebrow">EPITECH WeCode · Réalisations</p>
+    <h2 class="section-title">Projets <em>Techniques</em></h2>
+    <div class="proj-grid">
+
+      <div class="proj-card">
+        <div class="proj-icon">🏦</div>
+        <div class="proj-module">C-DAT-900 · End of Course Project (ECP)</div>
+        <div class="proj-title">AfriDebt — Risque de Dette Souveraine en Afrique</div>
+        <div class="proj-desc">Modèle panel multi-pays du risque de détresse de la dette souveraine en Afrique : classifieur d'alerte précoce (ROC-AUC 0.91) avec application Streamlit, pipelines de données FMI (WEO), Banque Mondiale (IDS/WDI) et FRED. Prolonge mon mémoire de Master sur la Côte d'Ivoire à l'échelle continentale.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Machine Learning</span>
+          <span class="stack-tag">Panel Data</span>
+          <span class="stack-tag">Streamlit</span>
+          <span class="stack-tag">IMF WEO</span>
+          <span class="stack-tag">World Bank IDS/WDI</span>
+        </div>
+        <a href="https://github.com/davidkouadio/AfriDebt_projet_ECP" target="_blank" rel="noopener" class="proj-link">Voir sur GitHub →</a>
+      </div>
+
+      <div class="proj-card teal">
+        <div class="proj-icon">🌍</div>
+        <div class="proj-module">Hackathon ESG</div>
+        <div class="proj-title">Traçabilité Carbone — Transporteurs Informels d'Abidjan</div>
+        <div class="proj-desc">Solution de mesure et scoring ESG pour ~80 000 véhicules informels (gbaka, woro-woro) du Grand Abidjan. Cadrage problem statement (Who/What/Where/Why) et présentation devant jury.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">ESG</span>
+          <span class="stack-tag">Data Analysis</span>
+        </div>
+        <a href="https://github.com/davidkouadio" target="_blank" rel="noopener" class="proj-link">Voir sur GitHub →</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-icon">📊</div>
+        <div class="proj-module">C-DAT-300 · End-to-End ML</div>
+        <div class="proj-title">Sentiment Analysis en temps réel — Twitter / Reddit</div>
+        <div class="proj-desc">Pipeline ETL complet : streaming via Apache Kafka, modèle Scikit-learn entraîné sur dataset IMDB, stockage PostgreSQL, dashboard Power BI temps réel. Coordination GitHub multi-branches.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Kafka</span>
+          <span class="stack-tag">Scikit-learn</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">Power BI</span>
+        </div>
+        <a href="https://github.com/davidkouadio" target="_blank" rel="noopener" class="proj-link">Voir sur GitHub →</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-icon">🧬</div>
+        <div class="proj-module">C-DAT-700 · Big Data</div>
+        <div class="proj-title">Prédiction Cancer du Sein — Random Forest</div>
+        <div class="proj-desc">Modèle Random Forest sur le dataset Wisconsin Breast Cancer. Scraping RSS Franceinfo (CSV), classification en 3 catégories. Déploiement Jupyter Hub sur VM Azure, configuration multi-utilisateurs.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Scikit-learn</span>
+          <span class="stack-tag">Azure</span>
+          <span class="stack-tag">Jupyter Hub</span>
+        </div>
+        <a href="https://github.com/davidkouadio" target="_blank" rel="noopener" class="proj-link">Voir sur GitHub →</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-icon">📰</div>
+        <div class="proj-module">C-DEV-120 · MVC Laravel</div>
+        <div class="proj-title">Freeads — Site de Petites Annonces</div>
+        <div class="proj-desc">Application MVC complète avec Laravel : authentification Eloquent ORM, CRUD annonces avec photos, filtres multi-critères (catégorie, localisation, prix, état), design responsive.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Laravel</span>
+          <span class="stack-tag">PHP</span>
+          <span class="stack-tag">MySQL</span>
+          <span class="stack-tag">HTML/CSS</span>
+        </div>
+        <a href="https://github.com/davidkouadio" target="_blank" rel="noopener" class="proj-link">Voir sur GitHub →</a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-icon">🗒️</div>
+        <div class="proj-module">C-DEV-121 · MVVM Vue.js</div>
+        <div class="proj-title">Post-it App &amp; my_shop</div>
+        <div class="proj-desc">App Vue.js avec Vue Router, Vuex (state management), API REST Fetch ES6. my_shop : e-commerce PHP objet, authentification bcrypt, CRUD produits/utilisateurs, barre de recherche responsive.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Vue.js</span>
+          <span class="stack-tag">Vuex</span>
+          <span class="stack-tag">PHP</span>
+          <span class="stack-tag">Bootstrap</span>
+        </div>
+        <a href="https://github.com/davidkouadio" target="_blank" rel="noopener" class="proj-link">Voir sur GitHub →</a>
+      </div>
+
+      <div class="proj-card teal">
+        <div class="proj-icon">🛒</div>
+        <div class="proj-module">C-DAT-200 · Data Analysis</div>
+        <div class="proj-title">Exploratory Data Analysis — Grocery Delivery</div>
+        <div class="proj-desc">Analyse de +3 millions de commandes et 200k utilisateurs (dataset Instacart). Visualisations comportements d'achat, produits phares, analyse temporelle avec Pandas et Power BI.</div>
+        <div class="proj-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Pandas</span>
+          <span class="stack-tag">Power BI</span>
+          <span class="stack-tag">Plotly</span>
+        </div>
+        <a href="https://github.com/davidkouadio/projet_datavize.git" target="_blank" rel="noopener" class="proj-link">Voir sur GitHub →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container reveal">
+    <p class="section-eyebrow">Me contacter</p>
+    <h2 class="section-title">Travaillons <em>ensemble</em></h2>
+    <p class="contact-sub">Disponible pour des missions de data science, analyse macroéconomique et financière, trading, développement web ou collaborations.</p>
+    <div class="contact-cards">
+      <a href="mailto:david.j.kouadio@gmail.com" class="contact-card">📧 david.j.kouadio@gmail.com</a>
+      <a href="tel:+2250777905518" class="contact-card">📞 07 77 90 55 18</a>
+      <a href="https://github.com/davidkouadio" target="_blank" rel="noopener" class="contact-card">⌥ GitHub</a>
+      <a href="https://linkedin.com/in/david-kouadio-90a028278" target="_blank" rel="noopener" class="contact-card">in LinkedIn</a>
+    </div>
+    <div class="contact-cta">
+      <a href="https://linkedin.com/in/david-kouadio-90a028278" target="_blank" rel="noopener" class="btn btn-primary">Me contacter sur LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Kouadio Jean David Mathieu &nbsp;·&nbsp; Bingerville, Abidjan, Côte d'Ivoire &nbsp;·&nbsp;
+  <a href="mailto:david.j.kouadio@gmail.com" style="color:rgba(255,255,255,0.4);text-decoration:none;">david.j.kouadio@gmail.com</a></p>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="btt" aria-label="Retour en haut">↑</button>
+
+<script>
+// ── Hamburger ──────────────────────────
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('navLinks');
+ham.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+});
+// Close menu on link click (mobile)
+nav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    ham.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// ── Scroll-spy (nav active) ────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const NAV_H = 70;
+function updateActive() {
+  let current = 'hero';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - NAV_H - 10) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateActive, { passive: true });
+updateActive();
+
+// ── Scroll reveal (Intersection Observer) ──
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.12 });
+revealEls.forEach(el => observer.observe(el));
+
+// ── Back to top ────────────────────────
+const btt = document.getElementById('btt');
+window.addEventListener('scroll', () => {
+  btt.classList.toggle('visible', window.scrollY > 400);
+}, { passive: true });
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
